@@ -25,6 +25,14 @@ namespace VetsiBere_4ITB
         private void button1_Click(object sender, EventArgs e)
         {
             // spustit hru
+            Form1 game = new Form1(settingsData.Players);
+
+            game.Show();
+
+            this.Hide();
+            game.FormClosing += (snd, evt) => {
+                this.Show();
+            };
         }
 
         private void button2_Click(object sender, EventArgs e)

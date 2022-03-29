@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VetsiBere_4ITB
 {
-    internal class CardCreator
+    public class CardCreator
     {
         private CardValues[] cardValues = { 
             new CardValues("A", 13),
@@ -49,7 +49,7 @@ namespace VetsiBere_4ITB
 
     }
 
-    struct CardValues
+    public struct CardValues
     {
         public int hodnota;
         public string jmeno;
@@ -60,12 +60,14 @@ namespace VetsiBere_4ITB
         }
     }
 
-    class Card
+    public class Card
     {
         public Symbol symbol;
         public string nazev;
         public int hodnota;
         public Bitmap bitmap;
+
+        public string FullName => $"({symbol}) {nazev}";
 
         public Card(Symbol symbol, string nazev, int hodnota, Bitmap bitmap)
         {
@@ -76,7 +78,7 @@ namespace VetsiBere_4ITB
         }
     }
 
-    enum Symbol
+    public enum Symbol
     {
         Srdce, Piky, Kary, Krize
     }

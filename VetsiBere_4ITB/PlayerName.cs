@@ -20,6 +20,9 @@ namespace VetsiBere_4ITB
             set { textBox1.Text = value; }
         }
 
+        private static Random random = new Random();
+        private static string[] randNames = { "Árný", "Štěpán", "JB", "AB", "Dan", "Eh? Kdo?", "Mates", "Džandyys"};
+
         public PlayerName()
         {
             InitializeComponent();
@@ -28,6 +31,14 @@ namespace VetsiBere_4ITB
         private void button1_Click(object sender, EventArgs e)
         {
             RequestDelete?.Invoke(this);
+        }
+
+        public void CompleteName()
+        {
+            if(string.IsNullOrEmpty(Value))
+            {
+                Value = randNames[random.Next(randNames.Length)];
+            }
         }
     }
 }

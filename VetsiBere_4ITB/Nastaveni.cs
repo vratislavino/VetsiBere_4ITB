@@ -64,5 +64,10 @@ namespace VetsiBere_4ITB
         {
             AddPlayerName("");
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            playerNames.ForEach(pn => pn.CompleteName());
+        }
     }
 }

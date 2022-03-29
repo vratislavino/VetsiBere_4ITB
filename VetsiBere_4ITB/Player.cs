@@ -2,7 +2,7 @@
 
 namespace VetsiBere_4ITB
 {
-    internal class Player
+    public class Player
     {
         private string name;
         private List<Card> cards;
