@@ -1,19 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace VetsiBere_4ITB
 {
     public class Player
     {
+        public event Action<int> CountOfCardsChanged;
+
         private string name;
-        private List<Card> cards;
+        private Queue<Card> cards;
 
         public string Name { get => name; set => name = value; }
-        internal List<Card> Cards { get => cards; set => cards = value; }
+        private Queue<Card> Cards { get => cards; set => cards = value; }
     
+        public int CountOfCards => cards.Count;
+        
         public Player(string name)
         {
             this.name = name;
-            cards = new List<Card>();
+            cards = new Queue<Card>();
+        }
+
+        public void EnqueueCard(Card card)
+        {
+            Cards.Enqueue(card);
+            CountOfCardsChanged?.Invoke(CountOfCards);
+        }
+
+        public Card DequeueCard()
+        {
+            var card = Cards.Dequeue();
+            CountOfCardsChanged?.Invoke(CountOfCards);
+            return card;
         }
     }
 }

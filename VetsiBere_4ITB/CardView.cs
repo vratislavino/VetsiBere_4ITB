@@ -17,10 +17,18 @@ namespace VetsiBere_4ITB
         public Card Card
         {
             get { return card; }
-            set { 
+            set
+            {
                 card = value;
-                pictureBox1.BackgroundImage = card.bitmap;
-                label1.Text = card.FullName;
+                if (card != null)
+                {
+                    pictureBox1.BackgroundImage = card.bitmap;
+                    label1.Text = card.FullName;
+                } else
+                {
+                    pictureBox1.BackgroundImage = null;
+                    label1.Text = "---";
+                }
             }
         }
 

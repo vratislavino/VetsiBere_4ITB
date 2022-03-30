@@ -25,6 +25,10 @@ namespace VetsiBere_4ITB
 
         public Card Card
         {
+            get
+            {
+                return cardView1.Card;
+            }
             set
             {
                 cardView1.Card = value;
@@ -35,6 +39,7 @@ namespace VetsiBere_4ITB
         {
             InitializeComponent();
             this.Player = player;
+            this.Player.CountOfCardsChanged += (count) => cardsLabel.Text = "(" + count + ")";
         }
     }
 }

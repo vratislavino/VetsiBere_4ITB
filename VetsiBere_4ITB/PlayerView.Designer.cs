@@ -38,7 +38,7 @@
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nameLabel.Location = new System.Drawing.Point(3, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(193, 47);
+            this.nameLabel.Size = new System.Drawing.Size(174, 47);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "label1";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -47,15 +47,16 @@
             // 
             this.cardsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cardsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cardsLabel.Location = new System.Drawing.Point(202, 0);
+            this.cardsLabel.Location = new System.Drawing.Point(183, 0);
             this.cardsLabel.Name = "cardsLabel";
-            this.cardsLabel.Size = new System.Drawing.Size(60, 47);
+            this.cardsLabel.Size = new System.Drawing.Size(79, 47);
             this.cardsLabel.TabIndex = 1;
             this.cardsLabel.Text = "(0)";
             this.cardsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cardView1
             // 
+            this.cardView1.Card = null;
             this.cardView1.Location = new System.Drawing.Point(22, 50);
             this.cardView1.Name = "cardView1";
             this.cardView1.Size = new System.Drawing.Size(220, 319);
