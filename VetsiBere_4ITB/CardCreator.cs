@@ -76,6 +76,11 @@ namespace VetsiBere_4ITB
             this.hodnota = hodnota;
             this.bitmap = bitmap;
         }
+
+        public override string ToString()
+        {
+            return $"{nazev} ({hodnota})";
+        }
     }
 
     public enum Symbol

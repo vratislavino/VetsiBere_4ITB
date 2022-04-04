@@ -29,9 +29,13 @@ namespace VetsiBere_4ITB
 
         public Card DequeueCard()
         {
-            var card = Cards.Dequeue();
-            CountOfCardsChanged?.Invoke(CountOfCards);
-            return card;
+            if (Cards.Count > 0)
+            {
+                var card = Cards.Dequeue();
+                CountOfCardsChanged?.Invoke(CountOfCards);
+                return card;
+            }
+            return null;
         }
     }
 }

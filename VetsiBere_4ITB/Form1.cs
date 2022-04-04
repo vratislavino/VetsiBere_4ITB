@@ -106,7 +106,12 @@ namespace VetsiBere_4ITB
             players.ForEach(p =>
             {
                 playerViews[p].Card = p.DequeueCard();
-                cardsToTake.Add(playerViews[p].Card);
+                if (playerViews[p].Card == null)
+                    playerViews.Remove(p);
+                else
+                {
+                    cardsToTake.Add(playerViews[p].Card);
+                }
             });
 
             // jaká karta je nejvyšší vyložená?
@@ -119,21 +124,25 @@ namespace VetsiBere_4ITB
             if (playersWithMaxKarta.Count == 1)
             {
                 // vezmi všechny karty na stole a dej je hráči s nejvyšší kartou
-                for (int i = 0; i < playerViews.Count; i++)
-                {
-                    playersWithMaxKarta.First().Player.EnqueueCard(playerViews[players[i]].Card);
-                }
+                //for (int i = 0; i < playerViews.Count; i++)
+                //{
+                    for(int j = 0; j < cardsToTake.Count; j++)
+                    {
+                        playersWithMaxKarta.First().Player.EnqueueCard(cardsToTake[j]);
+                    }
+                //}
             }
             else
             {
                 for (int i = 0; i < playersWithMaxKarta.Count; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (int j = 0; j < 2; j++)
                     {
-                        if (playersWithMaxKarta[i].Player.CountOfCards != 0)
+                        if (playersWithMaxKarta[i].Player.CountOfCards > 1)
                         {
                             playersWithMaxKarta[i].Card = playersWithMaxKarta[i].Player.DequeueCard();
-                            cardsToTake.Add(playersWithMaxKarta[i].Card);
+                            if(playersWithMaxKarta[i].Card != null)
+                                cardsToTake.Add(playersWithMaxKarta[i].Card);
                         }
                     }
                 }
@@ -157,6 +166,7 @@ namespace VetsiBere_4ITB
                     playerViews.Remove(players[i]);
                     players.Remove(players[i]);
                     i--;
+                    timer1.Stop();
                 }
             }
 
@@ -170,6 +180,16 @@ namespace VetsiBere_4ITB
                 MessageBox.Show("Vyhrál hráč " + players.First().Name);
                 Close();
             }
+        }
+
+        private void auto_button_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = !timer1.Enabled;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            drawButton_Click(null, null);
         }
     }
 }
